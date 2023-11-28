@@ -1,24 +1,43 @@
-# README
+# Kafka Consumer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Kafka Consumer is an Rails application responsible for processing intake data sent by VBMS. When VBMS handles an intake, they will pushlish a message containing the relevent data to a Apache Kafka platform. This application will consume that data through a topic subscription. Kafka Consumer is also responsible for transforming the data to be sent to the Caseflow application. 
 
-Things you may want to cover:
+Homebrew Installation
+---
+1. Install homebrew from self-service portal
 
-* Ruby version
+Docker Installation
+---
+Note: We do not use Docker Desktop due to licensing. We recommend using Colima to run the docker service.
 
-* System dependencies
+1. Open terminal and run:
+    1. `brew install docker docker-compose colima`
+    2. `mkdir -p ~/.docker/cli-plugins`
+    3. `ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose`
 
-* Configuration
+Clone the repo
+---
+1. Create a `~/dev/appeals/` directory
 
-* Database creation
+2. Clone the following repo using `git clone` into this directory
+    * <https://github.com/Aaron-Willis/Kafka-Consumer.git>
 
-* Database initialization
+Running the Application
+---
+1. Build the docker containers and run the database creation and migrations (First time only)
 
-* How to run the test suite
+```bash
+make build
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Start the containers
 
-* Deployment instructions
+```bash
+make up
+```
 
-* ...
+3. Run commands with `make run <COMMAND>`
+Example:
+```bash
+make run rails c
+```
