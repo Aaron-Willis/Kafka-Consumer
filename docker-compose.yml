@@ -41,19 +41,19 @@ services:
     depends_on:
       - kafka
 
-  kafka-ui:
-    container_name: kafka-ui
-    restart: unless-stopped
-    image: 'provectuslabs/kafka-ui:latest'
-    ports:
-      - "8080:8080"
-    depends_on:
-      - kafka
-      - schema-registry
-    environment:
-      - KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS=kafka:9092
-      - KAFKA_CLUSTERS_0_NAME=kafka-docker-cluster-1
-      - KAFKA_CLUSTERS_0_SCHEMAREGISTRY=http://schema-registry:9021
+  # kafka-ui:
+  #   container_name: kafka-ui
+  #   restart: unless-stopped
+  #   image: 'provectuslabs/kafka-ui:latest'
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - kafka
+  #     - schema-registry
+  #   environment:
+  #     - KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS=kafka:9092
+  #     - KAFKA_CLUSTERS_0_NAME=kafka-docker-cluster-1
+  #     - KAFKA_CLUSTERS_0_SCHEMAREGISTRY=http://schema-registry:9021
 
   redis:
     image: 'redis:7.0-alpine'
@@ -73,7 +73,7 @@ services:
       - .:/kafka-consumer
     depends_on:
       - db
-      - kafka-ui
+      #- kafka-ui
       - redis
     env_file: 
       - ".env"
