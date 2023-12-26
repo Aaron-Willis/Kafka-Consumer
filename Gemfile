@@ -93,3 +93,5 @@ group :development do
   # gem "spring"
   gem "solargraph"
 end
+
+gem "avro_turf", "~> 1.15"
