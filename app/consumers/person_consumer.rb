@@ -17,5 +17,5 @@ end
 
 # Notes:
 # avro = AvroTurf.new(schemas_path: 'lib/avro/schemas/')
-# message = avro.encode({ 'full_name' => 'Nick', 'age' => 30 }, schema_name: 'person', validate: true)
+# message = avro.encode({ 'full_name' => 'Nick', 'age' => 30, 'computer' => { 'brand' => 'mac' } }, schema_name: 'person', validate: true)
 # avro.decode(message, schema_name: "person")
