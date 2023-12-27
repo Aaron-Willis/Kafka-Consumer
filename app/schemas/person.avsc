@@ -12,6 +12,21 @@
       "name": "age",
       "type": "int",
       "doc": "age of person"
+    },
+    {
+      "name": "computer",
+      "type": {
+        "type": "record",
+        "name": "computer",
+        "doc": "my work computer",
+        "fields": [
+          {
+            "name": "brand",
+            "type": "string",
+            "doc": "name of brand"
+          }
+        ]
+      }
     }
   ]
  }
