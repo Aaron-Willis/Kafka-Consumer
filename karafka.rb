@@ -50,5 +50,10 @@ class KarafkaApp < Karafka::App
       # config(partitions: 2, 'cleanup.policy': 'compact')
       consumer ExampleConsumer
     end
+
+    topic :people do
+      consumer PersonConsumer
+      deserializer PersonLocalDeserializer.new
+    end
   end
 end
